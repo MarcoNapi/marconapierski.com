@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marco Napierski · AI Engineer y full-stack</title>
+<meta name="description" content="Ingeniero de IA y full-stack en Tenerife. Saco productos con IA a producción y los mantengo: NapNodes, CHAAAS y manhwatracker.com.">
+<meta property="og:title" content="Marco Napierski · AI Engineer y full-stack">
+<meta property="og:description" content="Productos con IA en producción: NapNodes, CHAAAS y manhwatracker.com.">
+<meta property="og:image" content="https://marconapierski.com/img/napnodes.webp">
+<meta property="og:url" content="https://marconapierski.com/">
+<link rel="canonical" href="https://marconapierski.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2323272C'/%3E%3Cpath d='M14 46V18h6l12 17V18h6v28h-6L20 29v17z' fill='%23E3B021'/%3E%3Cpath d='M42 46V18h8v28z' fill='%23EDEFEC'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+/* Tenerife: ceniza del Teide, basalto, pino canario y la retama amarilla. */
+:root {
+  --ceniza: #EDEFEC;
+  --blanco: #FFFFFF;
+  --basalto: #23272C;
+  --tenue: #59616A;
+  --pino: #2D5A4C;
+  --pino-hondo: #224639;
+  --retama: #E3B021;
+  --linea: #D5D9D5;
+  --ancho: 1120px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--ceniza); color: var(--basalto); font: 400 17px/1.6 "Archivo", system-ui, sans-serif; font-variation-settings: "wdth" 100; -webkit-font-smoothing: antialiased; }
+a { color: var(--pino); text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+a:hover { color: var(--pino-hondo); }
+:focus-visible { outline: 3px solid var(--retama); outline-offset: 3px; border-radius: 4px; }
+.contenedor { width: min(var(--ancho), 100% - 32px); margin: 0 auto; }
+
+/* Barra de arriba */
+.barra { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+.marca { font-weight: 800; font-variation-settings: "wdth" 125; letter-spacing: -.02em; color: var(--basalto); text-decoration: none; font-size: 18px; }
+.idiomas { display: flex; gap: 4px; padding: 3px; border-radius: 999px; background: #E1E4E0; }
+.idiomas button { border: 0; background: none; padding: 6px 12px; border-radius: 999px; font: 600 14px/1 "Archivo", sans-serif; color: var(--tenue); cursor: pointer; }
+.idiomas button[aria-pressed="true"] { background: var(--blanco); color: var(--basalto); box-shadow: 0 1px 3px rgb(35 39 44 / 15%); }
+
+/* Portada: el nombre es la pieza */
+.portada { padding: 56px 0 72px; }
+.nombre { margin: 0; font-weight: 850; font-variation-settings: "wdth" 125; font-size: clamp(52px, 10.5vw, 148px); line-height: .9; letter-spacing: -.045em; }
+.nombre span { display: block; }
+.nombre span:last-child { color: transparent; -webkit-text-stroke: 2px var(--basalto); }
+.resumen { margin: 34px 0 0; max-width: 34ch; font-size: clamp(22px, 2.6vw, 30px); line-height: 1.25; font-weight: 500; letter-spacing: -.01em; }
+.donde { margin: 16px 0 0; color: var(--tenue); max-width: 60ch; }
+.acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; align-items: center; }
+.boton { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 10px; background: var(--pino); color: #fff; text-decoration: none; font-weight: 650; border: 2px solid var(--pino); }
+.boton:hover { background: var(--pino-hondo); border-color: var(--pino-hondo); color: #fff; }
+.boton.claro { background: transparent; color: var(--basalto); border-color: var(--basalto); }
+.boton.claro:hover { background: var(--basalto); color: #fff; }
+.enlaces { display: flex; gap: 18px; margin-left: 8px; }
+
+/* Los productos, sobre basalto: lo que más tiene que verse */
+.productos { background: var(--basalto); color: #E8EAE7; padding: 88px 0 96px; }
+.productos h2, .seccion h2 { margin: 0 0 48px; font-weight: 800; font-variation-settings: "wdth" 115; font-size: clamp(30px, 4vw, 44px); letter-spacing: -.03em; line-height: 1.05; }
+.producto { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 44px; align-items: start; }
+.producto + .producto { margin-top: 88px; padding-top: 88px; border-top: 1px solid #3A4048; }
+.captura { margin: 0; }
+.captura img { display: block; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 28px 60px -24px rgb(0 0 0 / 70%); }
+.captura figcaption { margin-top: 10px; font-size: 14px; color: #A9B0B6; }
+.producto h3 { margin: 0; font-weight: 800; font-variation-settings: "wdth" 115; font-size: 30px; letter-spacing: -.02em; }
+.producto h3 a { color: #fff; text-decoration: none; }
+.producto h3 a:hover { text-decoration: underline; text-decoration-color: var(--retama); }
+.que-es { margin: 8px 0 22px; color: #C6CBC9; font-size: 18px; }
+.cifras { margin: 0 0 22px; padding: 16px 18px; border-radius: 10px; background: #2E333A; color: #fff; font-size: 16px; line-height: 1.5; }
+.cifras strong { color: var(--retama); font-weight: 700; }
+.producto h4 { margin: 0 0 8px; font-size: 15px; font-weight: 700; color: #fff; }
+.producto ul { margin: 0 0 20px; padding-left: 20px; }
+.producto li { margin: 0 0 8px; color: #D4D8D6; font-size: 16px; }
+.producto .con { margin: 0; font-size: 15px; color: #A9B0B6; }
+.productos a { color: #9FD3BF; }
+
+/* Resto, tranquilo */
+.seccion { padding: 88px 0 0; }
+.dos { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; }
+.trayectoria { list-style: none; margin: 0; padding: 0; }
+.trayectoria li { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 16px; padding: 18px 0; border-top: 1px solid var(--linea); }
+.trayectoria li:last-child { border-bottom: 1px solid var(--linea); }
+.trayectoria time { color: var(--tenue); font-size: 15px; font-variant-numeric: tabular-nums; }
+.trayectoria h3 { margin: 0; font-size: 18px; font-weight: 700; }
+.trayectoria p { margin: 4px 0 0; color: var(--tenue); font-size: 16px; }
+.habilidades { display: grid; gap: 18px; margin: 0; }
+.habilidades div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; }
+.habilidades dt { font-weight: 700; font-size: 16px; }
+.habilidades dd { margin: 0; color: var(--tenue); font-size: 16px; }
+.contacto { padding: 96px 0 72px; }
+.correo { display: inline-block; margin-top: 4px; font-weight: 800; font-variation-settings: "wdth" 112; font-size: clamp(26px, 4.4vw, 52px); letter-spacing: -.03em; color: var(--basalto); text-decoration-color: var(--retama); text-decoration-thickness: 4px; text-underline-offset: 8px; word-break: break-all; }
+.correo:hover { color: var(--pino); }
+.cvs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.pie { padding: 28px 0 40px; border-top: 1px solid var(--linea); color: var(--tenue); font-size: 14px; }
+
+@media (max-width: 860px) {
+  .producto, .dos { grid-template-columns: 1fr; gap: 28px; }
+  .producto + .producto { margin-top: 64px; padding-top: 64px; }
+  .productos { padding: 64px 0 72px; }
+  .seccion { padding-top: 64px; }
+  .habilidades div, .trayectoria li { grid-template-columns: 1fr; gap: 4px; }
+  .enlaces { margin-left: 0; width: 100%; }
+  .nombre span:last-child { -webkit-text-stroke-width: 1.5px; }
+}
+</style>
+</head>
+<body>
+<header class="contenedor barra">
+  <a class="marca" href="#">MN</a>
+  <div class="idiomas" role="group" aria-label="Idioma">
+    <button type="button" data-lang="es" aria-pressed="true">ES</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    <button type="button" data-lang="de" aria-pressed="false">DE</button>
+  </div>
+</header>
+
+<main>
+  <section class="contenedor portada">
+    <h1 class="nombre"><span>Marco</span><span>Napierski</span></h1>
+    <p class="resumen" data-t="resumen">Ingeniero de IA y full-stack. Llevo productos con IA de la idea a producción, y los mantengo vivos.</p>
+    <p class="donde" data-t="donde">Ingeniero informático (ULL) y máster en Inteligencia Artificial (UNIR). Vivo en Tenerife y trabajo en remoto, por contrato o como autónomo. Hablo español y alemán como nativo, e inglés con soltura.</p>
+    <div class="acciones">
+      <a class="boton" id="cv-principal" href="cv/CV_Marco_Napierski_ES.pdf" download data-t="descargar">Descargar el CV</a>
+      <a class="boton claro" href="mailto:marco@marconapierski.com" data-t="escribirme">Escribirme</a>
+      <span class="enlaces">
+        <a href="https://github.com/MarcoNapi">GitHub</a>
+        <a href="https://www.linkedin.com/in/marco-napi">LinkedIn</a>
+      </span>
+    </div>
+  </section>
+
+  <section class="productos" aria-labelledby="t-productos">
+    <div class="contenedor">
+      <h2 id="t-productos" data-t="productos">Lo que tengo en producción</h2>
+
+      <article class="producto">
+        <figure class="captura">
+          <img src="img/napnodes.webp" width="1200" height="750" alt="Portada de napnodes.com" loading="lazy">
+          <figcaption data-t="napnodes-pie">La web, en español e inglés.</figcaption>
+        </figure>
+        <div>
+          <h3><a href="https://napnodes.com">NapNodes</a></h3>
+          <p class="que-es" data-t="napnodes-que">Mi propio hosting de servidores de juego (Minecraft, Project Zomboid, Valheim, Hytale) en la UE, operado con agentes de IA.</p>
+          <p class="cifras" data-t-html="napnodes-cifras"><strong>69 cuentas</strong> en sus primeras seis semanas, más de la mitad llegadas desde ChatGPT.</p>
+          <h4 data-t="hice">Lo que he hecho</h4>
+          <ul>
+            <li data-t="napnodes-1">Todo el producto: la web en dos idiomas, el panel del cliente y el servicio que cobra, crea los servidores y vigila las máquinas.</li>
+            <li data-t="napnodes-2">Agentes con Claude Code en producción: uno resuelve y contesta los tickets de soporte, limitado a los servidores de cada cliente; otro encuentra en Reddit y Steam a quien busca servidor y redacta la respuesta para que yo la revise.</li>
+            <li data-t="napnodes-3">Cobros propios con Stripe: el cliente paga y su servidor se crea solo, sin intervención manual.</li>
+            <li data-t="napnodes-4">Contenido pensado para que los asistentes de IA lo citen (llms.txt, guías en Markdown y más de 60 herramientas gratis).</li>
+          </ul>
+          <p class="con" data-t="napnodes-con">Next.js, TypeScript, Stripe, MariaDB, Ansible, Pterodactyl, Claude Code.</p>
+        </div>
+      </article>
+
+      <article class="producto">
+        <figure class="captura">
+          <img src="img/chaaas.webp" width="1200" height="750" alt="Portada de chaaas.com" loading="lazy">
+          <figcaption data-t="chaaas-pie">Producto de CiBUC, del que he hecho la mayor parte.</figcaption>
+        </figure>
+        <div>
+          <h3><a href="https://chaaas.com">CHAAAS</a></h3>
+          <p class="que-es" data-t="chaaas-que">Plataforma de retos colaborativos: el grupo responde y valora las ideas de los demás, y la IA sintetiza el resultado.</p>
+          <p class="cifras" data-t-html="chaaas-cifras">He construido <strong>cerca del 80 %</strong> del producto, ya usado en sesiones con directivos de grandes marcas de gran consumo.</p>
+          <h4 data-t="hice">Lo que he hecho</h4>
+          <ul>
+            <li data-t="chaaas-1">Frontend en React y backend en Python con FastAPI, trabajando directamente con el fundador de la definición a producción.</li>
+            <li data-t="chaaas-2">Integración de Google Gemini: los prompts de síntesis y el agrupado de aportaciones con k-means.</li>
+            <li data-t="chaaas-3">Un agente que redacta informes en PDF con un bucle que evalúa la calidad de cada informe.</li>
+          </ul>
+          <p class="con" data-t="chaaas-con">React, Python, FastAPI, Google Gemini.</p>
+        </div>
+      </article>
+
+      <article class="producto">
+        <figure class="captura">
+          <img src="img/manhwatracker.webp" width="1200" height="750" alt="Portada de manhwatracker.com" loading="lazy">
+          <figcaption data-t="mt-pie">Proyecto personal, en inglés para lectores de todo el mundo.</figcaption>
+        </figure>
+        <div>
+          <h3><a href="https://manhwatracker.com">manhwatracker.com</a></h3>
+          <p class="que-es" data-t="mt-que">Para seguir los cómics coreanos que lees: catálogo, valoraciones, listas y búsqueda.</p>
+          <p class="cifras" data-t-html="mt-cifras">Unos <strong>100.000 visitantes únicos al mes</strong> y más de <strong>3.000 usuarios</strong> registrados.</p>
+          <h4 data-t="hice">Lo que he hecho</h4>
+          <ul>
+            <li data-t="mt-1">Todo: producto, usuarios y roles, automatizaciones y SEO.</li>
+            <li data-t="mt-2">Desplegado en Cloudflare con una versión adaptada de OpenNext, por unos pocos euros al mes.</li>
+            <li data-t="mt-3">Ahora: búsqueda semántica y RAG con pgvector.</li>
+          </ul>
+          <p class="con" data-t="mt-con">Next.js, Supabase, PostgreSQL, Cloudflare.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="contenedor seccion dos">
+    <div>
+      <h2 data-t="trayectoria">Trayectoria</h2>
+      <ol class="trayectoria">
+        <li><time data-t="hoy-2025">2025 – hoy</time><div><h3 data-t="t1">Software Engineer, producto con IA · CiBUC</h3><p data-t="t1p">CHAAAS, de la definición a producción.</p></div></li>
+        <li><time data-t="hoy-2025b">2025 – hoy</time><div><h3 data-t="t2">Máster en Inteligencia Artificial · UNIR</h3><p data-t="t2p">Todos los créditos superados. TFM sobre carteras con TTS-GAN y aprendizaje por refuerzo.</p></div></li>
+        <li><time>2025</time><div><h3 data-t="t3">Desarrollador en prácticas · Grupo Innovaris</h3><p data-t="t3p">Nuxt, Node.js y Java; APIs e integración de servicios de IA (DeepL).</p></div></li>
+        <li><time>2021 – 2025</time><div><h3 data-t="t4">Grado en Ingeniería Informática · Universidad de La Laguna</h3><p data-t="t4p">TFG sobre generación procedural de mundos en Unreal Engine.</p></div></li>
+        <li><time>2017 – 2020</time><div><h3 data-t="t5">Desarrollador web júnior · MyPlace Canarias</h3><p data-t="t5p">Aplicaciones web y sistemas internos con PHP, JavaScript y MariaDB.</p></div></li>
+      </ol>
+    </div>
+    <div>
+      <h2 data-t="habilidades">Con qué trabajo</h2>
+      <dl class="habilidades">
+        <div><dt data-t="h1">IA aplicada</dt><dd data-t="h1d">Agentes y uso de herramientas (Claude Code, Gemini, OpenAI), evaluación de lo que genera un LLM, RAG y embeddings con pgvector, prompts.</dd></div>
+        <div><dt data-t="h2">Producto web</dt><dd>React, Next.js, Nuxt, TypeScript, Tailwind CSS.</dd></div>
+        <div><dt data-t="h3">Backend y datos</dt><dd>Python (FastAPI), Node.js, PostgreSQL, Supabase, MariaDB, Stripe.</dd></div>
+        <div><dt data-t="h4">Infraestructura</dt><dd>Linux, Docker, Ansible, Cloudflare, Pterodactyl, Git.</dd></div>
+        <div><dt data-t="h5">Machine learning</dt><dd data-t="h5d">Redes neuronales, aprendizaje por refuerzo, GANs, modelos clásicos.</dd></div>
+        <div><dt data-t="h6">Idiomas</dt><dd data-t="h6d">Español y alemán, nativo. Inglés, B2 profesional.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="contenedor contacto" aria-labelledby="t-contacto">
+    <h2 id="t-contacto" class="sr" data-t="contacto" style="margin:0;font-size:20px;font-weight:700">¿Hablamos?</h2>
+    <a class="correo" href="mailto:marco@marconapierski.com">marco@marconapierski.com</a>
+    <div class="cvs">
+      <a class="boton claro" href="cv/CV_Marco_Napierski_ES.pdf" download>CV en español</a>
+      <a class="boton claro" href="cv/CV_Marco_Napierski_EN.pdf" download>CV in English</a>
+      <a class="boton claro" href="cv/CV_Marco_Napierski_DE.pdf" download>Lebenslauf auf Deutsch</a>
+    </div>
+  </section>
+</main>
+
+<footer class="contenedor pie">
+  <span data-t="pie">Marco Napierski · La Orotava, Tenerife</span>
+</footer>
+
+<script>
+// Los tres idiomas en la misma página: sin servidor y sin recargar.
+var T = {
+  en: {
+    resumen: "AI and full-stack engineer. I take AI products from idea to production, and keep them running.",
+    donde: "Computer Engineering (University of La Laguna) and MSc in Artificial Intelligence (UNIR). Based in Tenerife, Spain, working remotely as an employee or contractor. Native Spanish and German, fluent English.",
+    descargar: "Download my CV", escribirme: "Email me",
+    productos: "What I have in production",
+    "napnodes-pie": "The website, in Spanish and English.",
+    "napnodes-que": "My own game-server hosting company (Minecraft, Project Zomboid, Valheim, Hytale) in the EU, run with AI agents.",
+    "napnodes-cifras": "<strong>69 accounts</strong> in its first six weeks, more than half of them referred by ChatGPT.",
+    hice: "What I built",
+    "napnodes-1": "The whole product: the bilingual website, the customer panel and the service that bills, creates the servers and watches the machines.",
+    "napnodes-2": "Claude Code agents in production: one solves and answers support tickets, limited to each customer's servers; another finds people on Reddit and Steam looking for a server and drafts a reply for me to review.",
+    "napnodes-3": "In-house billing with Stripe: the customer pays and their server is created automatically, with no manual work.",
+    "napnodes-4": "Content designed to be cited by AI assistants (llms.txt, Markdown guides and 60+ free tools).",
+    "napnodes-con": "Next.js, TypeScript, Stripe, MariaDB, Ansible, Pterodactyl, Claude Code.",
+    "chaaas-pie": "A CiBUC product; I built most of it.",
+    "chaaas-que": "A collaborative challenge platform: the group answers and rates each other's ideas, and AI synthesises the result.",
+    "chaaas-cifras": "I built <strong>about 80%</strong> of the product, already used in sessions with executives of major consumer brands.",
+    "chaaas-1": "React frontend and Python/FastAPI backend, working directly with the founder from definition to production.",
+    "chaaas-2": "Google Gemini integration: the synthesis prompts and k-means clustering of contributions.",
+    "chaaas-3": "An agent that writes PDF reports, with a loop that evaluates the quality of each report.",
+    "chaaas-con": "React, Python, FastAPI, Google Gemini.",
+    "mt-pie": "Personal project, in English for readers worldwide.",
+    "mt-que": "Keep track of the Korean comics you read: catalogue, ratings, lists and search.",
+    "mt-cifras": "About <strong>100,000 unique visitors a month</strong> and over <strong>3,000 registered users</strong>.",
+    "mt-1": "Everything: product, users and roles, automation and SEO.",
+    "mt-2": "Deployed on Cloudflare with an adapted version of OpenNext, for a few euros a month.",
+    "mt-3": "Now: semantic search and RAG with pgvector.",
+    "mt-con": "Next.js, Supabase, PostgreSQL, Cloudflare.",
+    trayectoria: "Experience and education",
+    "hoy-2025": "2025 – now", "hoy-2025b": "2025 – now",
+    t1: "Software Engineer, AI product · CiBUC", t1p: "CHAAAS, from definition to production.",
+    t2: "MSc in Artificial Intelligence · UNIR", t2p: "All credits completed. Thesis on portfolio management with TTS-GAN and reinforcement learning.",
+    t3: "Software Developer (internship) · Grupo Innovaris", t3p: "Nuxt, Node.js and Java; APIs and integration of AI services (DeepL).",
+    t4: "BSc in Computer Engineering · University of La Laguna", t4p: "Thesis on procedural world generation in Unreal Engine.",
+    t5: "Junior Web Developer · MyPlace Canarias", t5p: "Web applications and internal systems with PHP, JavaScript and MariaDB.",
+    habilidades: "What I work with",
+    h1: "Applied AI", h1d: "Agents and tool use (Claude Code, Gemini, OpenAI), evaluating LLM output, RAG and embeddings with pgvector, prompts.",
+    h2: "Web product", h3: "Backend and data", h4: "Infrastructure", h5: "Machine learning",
+    h5d: "Neural networks, reinforcement learning, GANs, classic models.",
+    h6: "Languages", h6d: "Spanish and German, native. English, B2 professional.",
+    contacto: "Let's talk", pie: "Marco Napierski · La Orotava, Tenerife, Spain"
+  },
+  de: {
+    resumen: "KI- und Full-Stack-Entwickler. Ich bringe KI-Produkte von der Idee in die Produktion und halte sie am Laufen.",
+    donde: "Informatik-Ingenieur (Universität La Laguna) und Master in Künstlicher Intelligenz (UNIR). Ich lebe auf Teneriffa und arbeite remote, fest angestellt oder freiberuflich. Spanisch und Deutsch auf Muttersprachniveau, Englisch fließend.",
+    descargar: "Lebenslauf herunterladen", escribirme: "E-Mail schreiben",
+    productos: "Was ich in Produktion habe",
+    "napnodes-pie": "Die Website, auf Spanisch und Englisch.",
+    "napnodes-que": "Mein eigenes Gameserver-Hosting (Minecraft, Project Zomboid, Valheim, Hytale) in der EU, betrieben mit KI-Agenten.",
+    "napnodes-cifras": "<strong>69 Konten</strong> in den ersten sechs Wochen, mehr als die Hälfte über ChatGPT.",
+    hice: "Was ich gebaut habe",
+    "napnodes-1": "Das ganze Produkt: die zweisprachige Website, das Kundenpanel und den Dienst, der abrechnet, Server anlegt und die Maschinen überwacht.",
+    "napnodes-2": "Claude-Code-Agenten in Produktion: einer löst und beantwortet Support-Tickets, beschränkt auf die Server des jeweiligen Kunden; ein anderer findet auf Reddit und Steam Leute, die einen Server suchen, und entwirft eine Antwort, die ich prüfe.",
+    "napnodes-3": "Eigene Abrechnung mit Stripe: Der Kunde zahlt und sein Server wird automatisch angelegt, ohne manuellen Aufwand.",
+    "napnodes-4": "Inhalte, die KI-Assistenten zitieren können (llms.txt, Anleitungen in Markdown und über 60 kostenlose Tools).",
+    "napnodes-con": "Next.js, TypeScript, Stripe, MariaDB, Ansible, Pterodactyl, Claude Code.",
+    "chaaas-pie": "Ein Produkt von CiBUC, das ich größtenteils entwickelt habe.",
+    "chaaas-que": "Eine Plattform für kollaborative Challenges: Die Gruppe antwortet und bewertet die Ideen der anderen, die KI fasst das Ergebnis zusammen.",
+    "chaaas-cifras": "Ich habe <strong>rund 80 %</strong> des Produkts gebaut, das bereits in Sessions mit Führungskräften großer Konsumgütermarken eingesetzt wird.",
+    "chaaas-1": "Frontend in React und Backend in Python mit FastAPI, in direkter Zusammenarbeit mit dem Gründer von der Konzeption bis zur Produktion.",
+    "chaaas-2": "Integration von Google Gemini: die Synthese-Prompts und das Clustering der Beiträge mit k-Means.",
+    "chaaas-3": "Ein Agent, der PDF-Berichte schreibt, mit einer Schleife, die die Qualität jedes Berichts bewertet.",
+    "chaaas-con": "React, Python, FastAPI, Google Gemini.",
+    "mt-pie": "Eigenes Projekt, auf Englisch für Leser weltweit.",
+    "mt-que": "Zum Verfolgen koreanischer Comics: Katalog, Bewertungen, Listen und Suche.",
+    "mt-cifras": "Rund <strong>100.000 eindeutige Besucher im Monat</strong> und über <strong>3.000 registrierte Nutzer</strong>.",
+    "mt-1": "Alles: Produkt, Nutzer und Rollen, Automatisierungen und SEO.",
+    "mt-2": "Auf Cloudflare mit einer angepassten Version von OpenNext, für wenige Euro im Monat.",
+    "mt-3": "Gerade: semantische Suche und RAG mit pgvector.",
+    "mt-con": "Next.js, Supabase, PostgreSQL, Cloudflare.",
+    trayectoria: "Werdegang",
+    "hoy-2025": "2025 – heute", "hoy-2025b": "2025 – heute",
+    t1: "Software Engineer, KI-Produkt · CiBUC", t1p: "CHAAAS, von der Konzeption bis zur Produktion.",
+    t2: "Master in Künstlicher Intelligenz · UNIR", t2p: "Alle Credits abgeschlossen. Masterarbeit über Portfoliomanagement mit TTS-GAN und Reinforcement Learning.",
+    t3: "Softwareentwickler (Praktikum) · Grupo Innovaris", t3p: "Nuxt, Node.js und Java; APIs und Anbindung von KI-Diensten (DeepL).",
+    t4: "Bachelor in Informatik · Universität La Laguna", t4p: "Bachelorarbeit über prozedurale Weltgenerierung in der Unreal Engine.",
+    t5: "Junior-Webentwickler · MyPlace Canarias", t5p: "Webanwendungen und interne Systeme mit PHP, JavaScript und MariaDB.",
+    habilidades: "Womit ich arbeite",
+    h1: "Angewandte KI", h1d: "Agenten und Tool-Nutzung (Claude Code, Gemini, OpenAI), Bewertung von LLM-Ausgaben, RAG und Embeddings mit pgvector, Prompts.",
+    h2: "Webprodukt", h3: "Backend und Daten", h4: "Infrastruktur", h5: "Machine Learning",
+    h5d: "Neuronale Netze, Reinforcement Learning, GANs, klassische Modelle.",
+    h6: "Sprachen", h6d: "Spanisch und Deutsch, Muttersprache. Englisch, B2 beruflich.",
+    contacto: "Sprechen wir", pie: "Marco Napierski · La Orotava, Teneriffa, Spanien"
+  }
+};
+var ES = {};
+document.querySelectorAll("[data-t]").forEach(function (e) { ES[e.dataset.t] = e.textContent; });
+document.querySelectorAll("[data-t-html]").forEach(function (e) { ES[e.dataset.tHtml] = e.innerHTML; });
+var CV = { es: "ES", en: "EN", de: "DE" };
+function poner(l) {
+  var d = l === "es" ? ES : T[l];
+  document.querySelectorAll("[data-t]").forEach(function (e) { var v = d[e.dataset.t] || ES[e.dataset.t]; if (v) e.textContent = v; });
+  document.querySelectorAll("[data-t-html]").forEach(function (e) { var v = d[e.dataset.tHtml] || ES[e.dataset.tHtml]; if (v) e.innerHTML = v; });
+  document.documentElement.lang = l;
+  document.getElementById("cv-principal").href = "cv/CV_Marco_Napierski_" + CV[l] + ".pdf";
+  document.querySelectorAll(".idiomas button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === l)); });
+  try { localStorage.setItem("idioma", l); } catch (e) {}
+}
+document.querySelectorAll(".idiomas button").forEach(function (b) { b.addEventListener("click", function () { poner(b.dataset.lang); }); });
+var guardado = null; try { guardado = localStorage.getItem("idioma"); } catch (e) {}
+var nav = (navigator.language || "es").slice(0, 2);
+var inicial = guardado || (nav === "de" ? "de" : nav === "es" ? "es" : "en");
+if (inicial !== "es") poner(inicial);
+</script>
+</body>
+</html>
